@@ -10,4 +10,70 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+void  swap_a()
+{
 
+}
+
+void  swap_b()
+{
+
+}
+
+void  swap_swap()
+{
+  swap_a()
+  swap_b()
+}
+
+void  push_a()
+{
+
+}
+
+void  push_b()
+{
+
+}
+
+void  rotate_a()
+{
+
+}
+
+void  rotate_b()
+{
+
+}
+
+void  rotate_rotate()
+{
+  rotate_a()
+  rotate_b()
+}
+
+void  rerotate_a()
+{
+
+}
+
+void  rerotate_b()
+{
+
+}
+
+void  rerotate_rerotate()
+{
+  rerotate_a()
+  rerotate_b()
+}
+
+void  push_swap()
+{
+
+}
+
+int main(int argc, char **argv)
+{
+
+}
