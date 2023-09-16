@@ -75,5 +75,12 @@ void  push_swap()
 
 int main(int argc, char **argv)
 {
-
+  if (argc == 1)
+    exit()
+  // test input for errors
+  if (/* error found */)
+    write(1, "Error\n", 6);
+  // call function to setup stacks passing the input
+  // call push swap passing the stacks
+  return (0);
 }
