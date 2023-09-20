@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   insert_end.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrodenbu <mrodenbu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 15:53:03 by mrodenbu          #+#    #+#             */
-/*   Updated: 2023/09/20 15:53:06 by mrodenbu         ###   ########.fr       */
+/*   Created: 2023/09/20 16:56:50 by mrodenbu          #+#    #+#             */
+/*   Updated: 2023/09/20 16:56:52 by mrodenbu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <stdlib.h>
+void  insert_end(Node **root, int value)
+{
+  Node *new = malloc(sizeof(Node));
+  if (!new)
+    exit(1);
+  new->next = NULL;
+  new->x = value;
 
-typdef struct Node {
-	int x;
-	struct Node* next;
-} Node;
+  if (*root == NULL)
+  {
+    *root = new;
+    return();
+  }
 
-#endif
+  Node *curr = *root;
+  while (curr->next != NULL)
+    curr = curr->next;
+  curr->next = new;
+}
