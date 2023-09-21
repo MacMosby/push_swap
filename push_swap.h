@@ -14,10 +14,16 @@
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
 
-typdef struct Node {
+typedef struct Node {
 	int x;
 	struct Node* next;
 } Node;
+
+void  insert_end(Node **root, int value);
+int	ft_atoi(const char *nptr);
+Node  *stack_builder(int argc, char **argv);
 
 #endif

@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void  swap_a()
+#include "push_swap.h"
+
+/* void  swap_a()
 {
 
 }
@@ -71,16 +73,28 @@ void  rerotate_rerotate()
 void  push_swap()
 {
 
-}
+} */
 
 int main(int argc, char **argv)
 {
   if (argc == 1)
-    exit()
+  {
+    printf("give back to prompt");
+    exit(-1);
+  }
   // test input for errors
-  if (/* error found */)
+  if (ft_atoi(argv[1]) != 2)
+  {
     write(1, "Error\n", 6);
+    exit(-2);
+  }
   // call function to setup stacks passing the input
+  Node *curr = stack_builder(argc, argv);
   // call push swap passing the stacks
+  while (curr != NULL)
+  {
+    //printf("%d\n", curr->x);
+    curr = curr->next;
+  }
   return (0);
 }
