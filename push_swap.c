@@ -42,9 +42,21 @@ int  push_x_to_y(Node **x, Node **y)
   return (0);
 }
 
-void  rotate(Node **head)
+int  rotate(Node **head)
 {
-
+  if (*head == NULL)
+    return (0);
+  Node *first = *head;
+  Node *second = first->next;
+  if (second == NULL)
+    return(0);
+  *head = second;
+  Node *curr = first;
+  while (curr->next != NULL)
+    curr = curr->next;
+  curr->next = first;
+  first->next = NULL;
+  return (0);
 }
 
 /* void  rerotate()
@@ -92,8 +104,7 @@ int main(int argc, char **argv)
     printf("%d\n", curr->x);
     curr = curr->next;
   }
-  push_x_to_y(&stack_a, &stack_b);
-  push_x_to_y(&stack_a, &stack_b);
+  rotate(&stack_a);
   curr = stack_a;
   printf("stack a:\n");
   while (curr != NULL)
