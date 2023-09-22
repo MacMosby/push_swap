@@ -59,12 +59,26 @@ int  rotate(Node **head)
   return (0);
 }
 
-/* void  rerotate()
+int  rerotate(Node **head)
 {
-
+  if (*head == NULL)
+    return (0);
+  Node *first = *head;
+  Node *second = first->next;
+  if (second == NULL)
+    return (0);
+  Node *curr = *head;
+  while (curr->next->next != NULL)
+    curr = curr->next;
+  Node *new_end = curr;
+  curr = curr->next;
+  curr->next = first;
+  *head = curr;
+  new_end->next = NULL;
+  return (0);
 }
 
-void  push_swap(Node *stack_a)
+/* void  push_swap(Node *stack_a)
 {
 
 } */
@@ -104,7 +118,7 @@ int main(int argc, char **argv)
     printf("%d\n", curr->x);
     curr = curr->next;
   }
-  rotate(&stack_a);
+  rerotate(&stack_a);
   curr = stack_a;
   printf("stack a:\n");
   while (curr != NULL)
