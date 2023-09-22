@@ -20,7 +20,6 @@ int  swap(Node **root)
   curr = curr->next;
   if (curr == NULL)
     return (0);
-  // swap operation
   Node *first = *root;
   Node *second = curr;
   Node *third = curr->next;
@@ -30,12 +29,21 @@ int  swap(Node **root)
   return (0);
 }
 
-/* void  push()
+int  push_x_to_y(Node **x, Node **y)
 {
-
+  if (*x == NULL)
+    return (0);
+  Node *x_first = *x;
+  Node *x_second = x_first->next;
+  *x = x_second;
+  Node *y_first = *y;
+  Node *y_second = y_first->next;
+  x_first->next = y_first;
+  *y = x_first;
+  return (0);
 }
 
-void  rotate()
+/* void  rotate()
 {
 
 }
@@ -65,17 +73,36 @@ int main(int argc, char **argv)
   } */
   // call function to setup stack a passing the input
   Node *stack_a = stack_builder(argc, argv);
-  Node *curr = stack_a;
+  Node *stack_b = stack_builder(argc, argv);
+  Node *curr;
+  curr = stack_a;
+  printf("stack a:\n");
+  while (curr != NULL)
+  {
+
+    printf("%d\n", curr->x);
+    curr = curr->next;
+  }
+  // call push swap passing the stacks
+  //push_swap(stack_a);
+  // printing stack to see if stack_builder function works
+  curr = stack_b;
+  printf("stack b:\n");
   while (curr != NULL)
   {
     printf("%d\n", curr->x);
     curr = curr->next;
   }
-  swap_a(&stack_a);
-  // call push swap passing the stacks
-  //push_swap(stack_a);
-  // printing stack to see if stack_builder function works
+  push_x_to_y(&stack_a, &stack_b);
   curr = stack_a;
+  printf("stack a:\n");
+  while (curr != NULL)
+  {
+    printf("%d\n", curr->x);
+    curr = curr->next;
+  }
+  curr = stack_b;
+  printf("stack b:\n");
   while (curr != NULL)
   {
     printf("%d\n", curr->x);
