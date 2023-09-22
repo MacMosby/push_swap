@@ -19,11 +19,11 @@
 
 typedef struct Node {
 	int x;
-	struct Node* next;
+	struct Node *next;
 } Node;
 
 void  insert_end(Node **root, int value);
-int	ft_atoi(const char *nptr);
+int   ft_atoi(const char *nptr);
 Node  *stack_builder(int argc, char **argv);
 
 #endif
