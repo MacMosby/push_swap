@@ -12,18 +12,18 @@
 
 #include "push_swap.h"
 
-int  swap(Node **root)
+int  swap(Node **head)
 {
-  if (*root == NULL)
+  if (*head == NULL)
     return(0);
-  Node *curr = *root;
+  Node *curr = *head;
   curr = curr->next;
   if (curr == NULL)
     return (0);
-  Node *first = *root;
+  Node *first = *head;
   Node *second = curr;
   Node *third = curr->next;
-  *root = second;
+  *head = second;
   second->next = first;
   first->next = third;
   return (0);
@@ -37,18 +37,17 @@ int  push_x_to_y(Node **x, Node **y)
   Node *x_second = x_first->next;
   *x = x_second;
   Node *y_first = *y;
-  Node *y_second = y_first->next;
   x_first->next = y_first;
   *y = x_first;
   return (0);
 }
 
-/* void  rotate()
+void  rotate(Node **head)
 {
 
 }
 
-void  rerotate()
+/* void  rerotate()
 {
 
 }
@@ -73,7 +72,7 @@ int main(int argc, char **argv)
   } */
   // call function to setup stack a passing the input
   Node *stack_a = stack_builder(argc, argv);
-  Node *stack_b = stack_builder(argc, argv);
+  Node *stack_b = NULL;
   Node *curr;
   curr = stack_a;
   printf("stack a:\n");
@@ -93,6 +92,7 @@ int main(int argc, char **argv)
     printf("%d\n", curr->x);
     curr = curr->next;
   }
+  push_x_to_y(&stack_a, &stack_b);
   push_x_to_y(&stack_a, &stack_b);
   curr = stack_a;
   printf("stack a:\n");
