@@ -25,5 +25,9 @@ typedef struct Node {
 void  insert_end(Node **root, int value);
 int   ft_atoi(const char *nptr);
 Node  *stack_builder(int argc, char **argv);
+int  swap(Node **head);
+int  push_x_to_y(Node **x, Node **y);
+int  rotate(Node **head);
+int  rerotate(Node **head);
 
 #endif

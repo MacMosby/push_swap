@@ -15,14 +15,12 @@
 int	ft_atoi(const char *nptr)
 {
 	int	i;
-	int	res;
+	long	res;
 	int	minus;
 
 	i = 0;
 	res = 0;
 	minus = 0;
-	while ((nptr[i] > 8 && nptr[i] < 14) || nptr[i] == 32)
-		i++;
 	if (nptr[i] == 45)
 	{
 		minus = 1;
@@ -38,7 +36,13 @@ int	ft_atoi(const char *nptr)
 	}
 	if (minus % 2 == 1)
 		res *= (-1);
-	return (res);
+  if (nptr[i] == 0 && res >= -2147483648 && res <= 2147483647)
+	  return (res);
+  else
+  {
+    write(1, "Error\n", 6);
+    exit(-2);
+  }
 }
 
 void  insert_end(Node **root, int value)
@@ -56,8 +60,13 @@ void  insert_end(Node **root, int value)
   else
   {
     Node *curr = *root;
-    while (curr->next != NULL)
+    while (curr->next != NULL && curr->x != value)
       curr = curr->next;
+    if (curr->x == value)
+    {
+      write(1, "Error\n", 6);
+      exit(-3);
+    }
     curr->next = new;
   }
 }
