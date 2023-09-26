@@ -39,7 +39,7 @@ void  push_swap(Node **stack_a, Node **stack_b)
   printf("last element: %d\n", c->x);
   //while (check_final_order(stack_a, stack_b) == 0)
   int i = 0;
-  while (i < 10)
+  while (i < 13)
   {
     a = *stack_a;
     b = a->next;
