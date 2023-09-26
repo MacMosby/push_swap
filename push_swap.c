@@ -12,10 +12,27 @@
 
 #include "push_swap.h"
 
-/* void  push_swap(Node *stack_a)
+int check_final_order(Node **stack_a, Node **stack_b)
 {
+  Node *head_b = *stack_b;
+  Node *curr_a = *stack_a;
 
-} */
+  if (head_b != NULL)
+    return (0);
+  while (curr->next != NULL && curr->x < curr->next->x)
+    curr = curr->next;
+  if (curr->next == NULL)
+    return (1);
+  return (0);
+}
+
+void  push_swap(Node **stack_a, Node **stack_b)
+{
+  while (check_final_order() == 0)
+  {
+
+  }
+}
 
 int main(int argc, char **argv)
 {
