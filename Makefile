@@ -12,9 +12,9 @@
 
 NAME = push_swap
 
-SRC = push_swap.c
-
-OBJ = $(SRC:%.c=%.o)
+SRC = push_swap.c \
+			push_swap_utils.c \
+			stack_operations.c
 
 HEADER = push_swap.h
 
@@ -22,11 +22,8 @@ FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(HEADER)
-	ar rcs $(NAME) $(OBJ)
-
-$(OBJ):
-	cc $(FLAGS) -c $(SRC)
+$(NAME):	$(HEADER)
+	cc $(FLAGS) $(SRC) -o $(NAME)
 
 clean:
 	rm -f *.o
