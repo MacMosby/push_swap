@@ -15,7 +15,7 @@
 int check_final_order(Node **stack_a, Node **stack_b)
 {
   Node *head_b = *stack_b;
-  Node *curr_a = *stack_a;
+  Node *curr = *stack_a;
 
   if (head_b != NULL)
     return (0);
@@ -28,9 +28,31 @@ int check_final_order(Node **stack_a, Node **stack_b)
 
 void  push_swap(Node **stack_a, Node **stack_b)
 {
-  while (check_final_order() == 0)
-  {
+  Node *a = *stack_a;
+  Node *b = a->next;
+  Node *c = b->next;
 
+  while (c->next != NULL)
+    c = c->next;
+  printf("first element: %d\n", a->x);
+  printf("second element: %d\n", b->x);
+  printf("last element: %d\n", c->x);
+  //while (check_final_order(stack_a, stack_b) == 0)
+  int i = 0;
+  while (i < 10)
+  {
+    a = *stack_a;
+    b = a->next;
+    c = b->next;
+    while (c->next != NULL)
+      c = c->next;
+    if (((a->x > b->x) && (b->x > c->x)) || ((c->x > a->x && a->x > b->x)))
+      swap(stack_a);
+    else if (((a->x > c->x && c->x > b->x)) || ((b->x > a->x) && (a->x > c->x)))
+      rotate(stack_a);
+    else
+      push_x_to_y(stack_a, stack_b);
+    i++;
   }
 }
 
@@ -41,12 +63,6 @@ int main(int argc, char **argv)
     printf("give back to prompt");
     exit(-1);
   }
-  // test input for errors
-/*   if ()
-  {
-    write(1, "Error\n", 6);
-    exit(-2);
-  } */
   // call function to setup stack a passing the input
   Node *stack_a = stack_builder(argc, argv);
   Node *stack_b = NULL;
@@ -69,7 +85,7 @@ int main(int argc, char **argv)
     printf("%d\n", curr->x);
     curr = curr->next;
   }
-  rerotate(&stack_a);
+  push_swap(&stack_a, &stack_b);
   curr = stack_a;
   printf("stack a:\n");
   while (curr != NULL)
