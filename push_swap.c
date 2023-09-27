@@ -12,20 +12,6 @@
 
 #include "push_swap.h"
 
-int check_final_order(Node **stack_a, Node **stack_b)
-{
-  Node *head_b = *stack_b;
-  Node *curr = *stack_a;
-
-  if (head_b != NULL)
-    return (0);
-  while (curr->next != NULL && curr->x < curr->next->x)
-    curr = curr->next;
-  if (curr->next == NULL)
-    return (1);
-  return (0);
-}
-
 void  push_swap(Node **stack_a, Node **stack_b)
 {
   Node *a = *stack_a;
@@ -37,7 +23,7 @@ void  push_swap(Node **stack_a, Node **stack_b)
   printf("first element: %d\n", a->x);
   printf("second element: %d\n", b->x);
   printf("last element: %d\n", c->x);
-  //while (check_final_order(stack_a, stack_b) == 0)
+  //while (ft_check_final_order(stack_a, stack_b) == 0)
   int i = 0;
   while (i < 13)
   {
@@ -64,7 +50,7 @@ int main(int argc, char **argv)
     exit(-1);
   }
   // call function to setup stack a passing the input
-  Node *stack_a = stack_builder(argc, argv);
+  Node *stack_a = ft_stack_builder(argc, argv);
   Node *stack_b = NULL;
   Node *curr;
   curr = stack_a;
