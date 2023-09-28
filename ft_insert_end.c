@@ -12,28 +12,30 @@
 
 #include "push_swap.h"
 
-void  ft_insert_end(Node **root, int value)
+void	ft_insert_end(t_Node **root, int value)
 {
-  Node *new = malloc(sizeof(Node));
-  if (!new)
-    exit(1);
-  new->next = NULL;
-  new->x = value;
+	t_Node	*new;
+	t_Node	*curr;
 
-  if (*root == NULL)
-  {
-    *root = new;
-  }
-  else
-  {
-    Node *curr = *root;
-    while (curr->next != NULL && curr->x != value)
-      curr = curr->next;
-    if (curr->x == value)
-    {
-      write(1, "Error\n", 6);
-      exit(-3);
-    }
-    curr->next = new;
-  }
+	new = malloc(sizeof(t_Node));
+	if (!new)
+		exit(1);
+	new->next = NULL;
+	new->x = value;
+	if (*root == NULL)
+	{
+		*root = new;
+	}
+	else
+	{
+		curr = *root;
+		while (curr->next != NULL && curr->x != value)
+			curr = curr->next;
+		if (curr->x == value)
+		{
+			write(1, "Error\n", 6);
+			exit(-3);
+		}
+		curr->next = new;
+	}
 }

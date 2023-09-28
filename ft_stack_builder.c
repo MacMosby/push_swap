@@ -12,17 +12,20 @@
 
 #include "push_swap.h"
 
-Node  *ft_stack_builder(int argc, char **argv)
+t_Node	*ft_stack_builder(int argc, char **argv)
 {
-  int i = 1;
-  Node *stack_a = NULL;
+	int		i;
+	int		num;
+	t_Node	*stack_a;
 
-  while (i < argc)
-  {
-    int num = ft_atoi(argv[i]);
-    //printf("%d\n", num);
-    ft_insert_end(&stack_a, num);
-    i++;
-  }
-  return(stack_a);
+	i = 1;
+	stack_a = NULL;
+	while (i < argc)
+	{
+		num = ft_atoi(argv[i]);
+		//printf("%d\n", num);
+		ft_insert_end(&stack_a, num);
+		i++;
+	}
+	return (stack_a);
 }
