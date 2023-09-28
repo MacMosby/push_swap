@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
 int ft_check_final_order(Node **stack_a, Node **stack_b)
 {
   Node *head_b = *stack_b;

@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
 void  ft_insert_end(Node **root, int value)
 {
   Node *new = malloc(sizeof(Node));

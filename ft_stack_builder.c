@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
 Node  *ft_stack_builder(int argc, char **argv)
 {
   int i = 1;

@@ -29,5 +29,6 @@ int  swap(Node **head);
 int  push_x_to_y(Node **x, Node **y);
 int  rotate(Node **head);
 int  rerotate(Node **head);
+int ft_check_final_order(Node **stack_a, Node **stack_b);
 
 #endif

@@ -14,15 +14,10 @@
 
 void  push_swap(Node **stack_a, Node **stack_b)
 {
-  Node *a = *stack_a;
-  Node *b = a->next;
-  Node *c = b->next;
+  Node *a;
+  Node *b;
+  Node *c;
 
-  while (c->next != NULL)
-    c = c->next;
-  printf("first element: %d\n", a->x);
-  printf("second element: %d\n", b->x);
-  printf("last element: %d\n", c->x);
   //while (ft_check_final_order(stack_a, stack_b) == 0)
   int i = 0;
   while (i < 13)

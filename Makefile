@@ -12,9 +12,7 @@
 
 NAME = push_swap
 
-SRC = push_swap.c \
-			push_swap_utils.c \
-			stack_operations.c
+SRC = *.c
 
 HEADER = push_swap.h
 
