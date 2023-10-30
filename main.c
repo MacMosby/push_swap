@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
 void	algorithm()
 {
 	// if 5 or more numbers in stack a
@@ -34,3 +35,4 @@ void	algorithm()
 			push_x_to_y(stack_b, stack_a);
 
 }
+*/
