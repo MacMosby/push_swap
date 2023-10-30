@@ -19,6 +19,8 @@ void	push_swap(t_Node **stack_a, t_Node **stack_b)
 	t_Node	*c;
 	int		i;
 
+	ft_set_indexes(stack_a);
+	ft_set_indexes(stack_b);
 	//while (ft_check_final_order(stack_a, stack_b) == 0)
 	i = 0;
 	while (i < 13)
@@ -56,7 +58,7 @@ int	main(int argc, char **argv)
 	printf("stack a:\n");
 	while (curr != NULL)
 	{
-		printf("%d\n", curr->x);
+		printf("num: %d, index: %d\n", curr->x, curr->index);
 		curr = curr->next;
 	}
 	// call push swap passing the stacks
@@ -66,7 +68,7 @@ int	main(int argc, char **argv)
 	printf("stack b:\n");
 	while (curr != NULL)
 	{
-		printf("%d\n", curr->x);
+		printf("num: %d, index: %d\n", curr->x, curr->index);
 		curr = curr->next;
 	}
 	printf("BEFORE");
@@ -76,14 +78,14 @@ int	main(int argc, char **argv)
 	printf("stack a:\n");
 	while (curr != NULL)
 	{
-		printf("%d\n", curr->x);
+		printf("num: %d, index: %d\n", curr->x, curr->index);
 		curr = curr->next;
 	}
 	curr = stack_b;
 	printf("stack b:\n");
 	while (curr != NULL)
 	{
-		printf("%d\n", curr->x);
+		printf("num: %d, index: %d\n", curr->x, curr->index);
 		curr = curr->next;
 	}
 	return (0);
