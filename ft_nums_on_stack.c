@@ -14,8 +14,8 @@
 
 int	ft_nums_on_stack(t_Node **stack)
 {
-	t_Node *curr;
-	int count;
+	t_Node	*curr;
+	int		count;
 
 	if (*stack == NULL)
 		return (0);

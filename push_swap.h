@@ -20,6 +20,7 @@
 typedef struct t_Node {
 	int				x;
 	struct t_Node	*next;
+	int				index;
 }	t_Node;
 
 void	ft_insert_end(t_Node **root, int value);

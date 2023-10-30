@@ -22,6 +22,7 @@ void	ft_insert_end(t_Node **root, int value)
 		exit(1);
 	new->next = NULL;
 	new->x = value;
+	new->index = 0;
 	if (*root == NULL)
 	{
 		*root = new;

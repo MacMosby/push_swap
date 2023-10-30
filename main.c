@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
+#include "push_swap.h"
+
 void	algorithm()
 {
 	// if 5 or more numbers in stack a
@@ -22,7 +23,9 @@ void	algorithm()
 			swap(stack_b);
 		// while more than 3 numbers in stack a
 		while (nums_on_stack(stack_a) > 0)
-			// reset indexes
+			// set indexes
+			ft_set_indexes(stack_a);
+			ft_set_indexes(stack_b);
 			// looping over stack a
 				// find number w/ minumum number of moves to put in right position
 
@@ -31,8 +34,7 @@ void	algorithm()
 					// plus one move (push a to b)
 			// move number in right position
 		// get all numbers from stack b to stack a
-		while (nums_on_stack(stack_b) > 0)
+		while (ft_nums_on_stack(stack_b) > 0)
 			push_x_to_y(stack_b, stack_a);
 
 }
-*/
