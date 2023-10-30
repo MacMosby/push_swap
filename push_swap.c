@@ -19,8 +19,9 @@ void	push_swap(t_Node **stack_a, t_Node **stack_b)
 	t_Node	*c;
 	int		i;
 
+	ft_nums_on_stack(stack_a);
 	//while (ft_check_final_order(stack_a, stack_b) == 0)
-	i = 0;
+	/* i = 0;
 	while (i < 13)
 	{
 		a = *stack_a;
@@ -35,7 +36,7 @@ void	push_swap(t_Node **stack_a, t_Node **stack_b)
 		else if (((b->x > c->x) && (c->x > a->x)) || ((c->x > b->x) && (b->x > a->x)))
 			push_x_to_y(stack_a, stack_b);
 		i++;
-	}
+	} */
 }
 
 int	main(int argc, char **argv)
@@ -69,7 +70,9 @@ int	main(int argc, char **argv)
 		printf("%d\n", curr->x);
 		curr = curr->next;
 	}
+	printf("BEFORE");
 	push_swap(&stack_a, &stack_b);
+	printf("AFTER");
 	curr = stack_a;
 	printf("stack a:\n");
 	while (curr != NULL)

@@ -30,5 +30,6 @@ int		push_x_to_y(t_Node **x, t_Node **y);
 int		rotate(t_Node **head);
 int		rerotate(t_Node **head);
 int		ft_check_final_order(t_Node **stack_a, t_Node **stack_b);
+int		ft_nums_on_stack(t_Node **stack);
 
 #endif
