@@ -35,7 +35,7 @@ void	algorithm(t_Node **stack_a, t_Node **stack_b)
 			while (curr != NULL)
 			{
 				// find minumum number of moves for this number
-				ft_find_steps(curr);
+				ft_find_steps(stack_a, stack_b, curr);
 				curr = curr->next;
 			}
 
