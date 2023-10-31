@@ -38,6 +38,8 @@ void	push_swap(t_Node **stack_a, t_Node **stack_b)
 			push_x_to_y(stack_a, stack_b);
 		i++;
 	}
+	ft_set_indexes(stack_a);
+	ft_set_indexes(stack_b);
 }
 
 int	main(int argc, char **argv)
