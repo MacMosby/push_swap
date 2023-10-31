@@ -14,8 +14,8 @@
 
 t_Node	*ft_find_b_num(t_Node *a_num, t_Node **stack_b)
 {
-	t_Node *curr;
-	t_Node *b_num;
+	t_Node	*curr;
+	t_Node	*b_num;
 
 	curr = *stack_b;
 	b_num = a_num;

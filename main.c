@@ -21,6 +21,7 @@ void	algorithm(t_Node **stack_a, t_Node **stack_b)
 
 	// if 5 or more numbers in stack a
 	if (ft_nums_on_stack(stack_a) > 4)
+	{
 		// push two numbers from stack a to stack b and sort them the right way (bigger one on top)
 		push_x_to_y(stack_a, stack_b);
 		push_x_to_y(stack_a, stack_b);
@@ -29,6 +30,7 @@ void	algorithm(t_Node **stack_a, t_Node **stack_b)
 			swap(stack_b);
 		// while more than 0 numbers in stack a
 		while (nums_on_stack(stack_a) > 0)
+		{
 			// set indexes
 			ft_set_indexes(stack_a);
 			ft_set_indexes(stack_b);
@@ -46,8 +48,9 @@ void	algorithm(t_Node **stack_a, t_Node **stack_b)
 			}
 			// move number in right position
 			ft_execute_moves(min_moves, stack_a, stack_b);
+		}
 		// get all numbers from stack b to stack a
 		while (ft_nums_on_stack(stack_b) > 0)
 			push_x_to_y(stack_b, stack_a);
-
+	}
 }
