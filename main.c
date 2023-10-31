@@ -14,8 +14,10 @@
 
 void	algorithm(t_Node **stack_a, t_Node **stack_b)
 {
-	t_Node *head_b;
-	t_Node *curr;
+	t_Node	*head_b;
+	t_Node	*curr;
+	int		*min_moves;
+	int		*new_moves;
 
 	// if 5 or more numbers in stack a
 	if (ft_nums_on_stack(stack_a) > 4)
@@ -35,14 +37,15 @@ void	algorithm(t_Node **stack_a, t_Node **stack_b)
 			while (curr != NULL)
 			{
 				// find minumum number of moves for this number
-				ft_find_steps(stack_a, stack_b, curr);
+				new_moves = ft_find_steps(stack_a, stack_b, curr);
+				if (min_moves == NULL)
+					min_moves = new_moves;
+				else if (new_moves[0] + new_moves[2] < min_moves[0] + min_moves[2])
+					min_moves = new_moves;
 				curr = curr->next;
 			}
-
-					// find num of steps to bring element to top of stack a
-					// find num of steps to arrange stack b
-					// plus one move (push a to b)
 			// move number in right position
+			ft_execute_moves(min_moves, stack_a, stack_b);
 		// get all numbers from stack b to stack a
 		while (ft_nums_on_stack(stack_b) > 0)
 			push_x_to_y(stack_b, stack_a);
