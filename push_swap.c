@@ -14,15 +14,48 @@
 
 void	push_swap(t_Node **stack_a, t_Node **stack_b)
 {
-	t_Node	*a;
+	/* t_Node	*a;
 	t_Node	*b;
 	t_Node	*c;
-	int		i;
+	int		i; */
 
-	ft_set_indexes(stack_a);
-	ft_set_indexes(stack_b);
+	t_Node *curr = *stack_a;
+
+
+	/* t_Node *curr = ft_find_b_num(*stack_a, stack_b);
+	printf("number: %d\n", curr->x);
+	printf("index: %d\n", curr->index); */
+
+	int *steps = ft_find_steps(stack_a, stack_b, curr);
+	int i = 0;
+	while (i < 4)
+	{
+		printf("%d", steps[i]);
+		i++;
+	}
+	/* int		*min_moves;
+	int		*new_moves;
+
+	// set indexes
+		ft_set_indexes(stack_a);
+		ft_set_indexes(stack_b);
+		// looping over stack a
+		curr = *stack_a;
+		while (curr != NULL)
+		{
+			// find minumum number of moves for this number
+			new_moves = ft_find_steps(stack_a, stack_b, curr);
+			if (min_moves == NULL)
+				min_moves = new_moves;
+			else if (new_moves[0] + new_moves[2] < min_moves[0] + min_moves[2])
+				min_moves = new_moves;
+			curr = curr->next;
+		}
+		// move number in right position
+		ft_execute_moves(min_moves, stack_a, stack_b); */
+
 	//while (ft_check_final_order(stack_a, stack_b) == 0)
-	i = 0;
+	/* i = 0;
 	while (i < 13)
 	{
 		a = *stack_a;
@@ -37,16 +70,27 @@ void	push_swap(t_Node **stack_a, t_Node **stack_b)
 		else if (((b->x > c->x) && (c->x > a->x)) || ((c->x > b->x) && (b->x > a->x)))
 			push_x_to_y(stack_a, stack_b);
 		i++;
-	}
+	} */
 	ft_set_indexes(stack_a);
 	ft_set_indexes(stack_b);
+}
+
+void	printf_stack(t_Node **stack)
+{
+	t_Node	*curr;
+
+	curr = *stack;
+	while (curr != NULL)
+	{
+		printf("num: %d, index: %d\n", curr->x, curr->index);
+		curr = curr->next;
+	}
 }
 
 int	main(int argc, char **argv)
 {
 	t_Node	*stack_a;
 	t_Node	*stack_b;
-	t_Node	*curr;
 
 	if (argc == 1)
 	{
@@ -56,39 +100,30 @@ int	main(int argc, char **argv)
 	// call function to setup stack a passing the input
 	stack_a = ft_stack_builder(argc, argv);
 	stack_b = NULL;
-	curr = stack_a;
+	push_x_to_y(&stack_a, &stack_b);
+	push_x_to_y(&stack_a, &stack_b);
+	push_x_to_y(&stack_a, &stack_b);
+	push_x_to_y(&stack_a, &stack_b);
+	ft_set_indexes(&stack_a);
+	ft_set_indexes(&stack_b);
+	//print stacks to check
 	printf("stack a:\n");
-	while (curr != NULL)
-	{
-		printf("num: %d, index: %d\n", curr->x, curr->index);
-		curr = curr->next;
-	}
-	// call push swap passing the stacks
-	//push_swap(stack_a);
-	// printing stack to see if stack_builder function works
-	curr = stack_b;
+	printf_stack(&stack_a);
+
 	printf("stack b:\n");
-	while (curr != NULL)
-	{
-		printf("num: %d, index: %d\n", curr->x, curr->index);
-		curr = curr->next;
-	}
-	printf("BEFORE");
+	printf_stack(&stack_b);
+
+	printf("\n");
+
 	push_swap(&stack_a, &stack_b);
-	printf("AFTER");
-	curr = stack_a;
+	//algorithm(&stack_a, &stack_b);
+
+
 	printf("stack a:\n");
-	while (curr != NULL)
-	{
-		printf("num: %d, index: %d\n", curr->x, curr->index);
-		curr = curr->next;
-	}
-	curr = stack_b;
+	printf_stack(&stack_a);
+
 	printf("stack b:\n");
-	while (curr != NULL)
-	{
-		printf("num: %d, index: %d\n", curr->x, curr->index);
-		curr = curr->next;
-	}
+	printf_stack(&stack_b);
+
 	return (0);
 }

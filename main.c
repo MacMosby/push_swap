@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	algorithm(t_Node **stack_a, t_Node **stack_b)
+/* void	algorithm(t_Node **stack_a, t_Node **stack_b)
 {
 	t_Node	*head_b;
 	t_Node	*curr;
@@ -29,7 +29,7 @@ void	algorithm(t_Node **stack_a, t_Node **stack_b)
 		if (head_b->x < head_b->next->x)
 			swap(stack_b);
 		// while more than 0 numbers in stack a
-		while (nums_on_stack(stack_a) > 0)
+		while (ft_nums_on_stack(stack_a) > 0)
 		{
 			// set indexes
 			ft_set_indexes(stack_a);
@@ -53,4 +53,4 @@ void	algorithm(t_Node **stack_a, t_Node **stack_b)
 		while (ft_nums_on_stack(stack_b) > 0)
 			push_x_to_y(stack_b, stack_a);
 	}
-}
+} */
