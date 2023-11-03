@@ -21,12 +21,12 @@ void	ft_moves_a(int *moves, t_Node **stack)
 	{
 		if (moves[1] == 6)
 		{
-			printf("ra");
+			printf("ra\n");
 			rotate(stack);
 		}
 		else if (moves[1] == 9)
 		{
-			printf("rra");
+			printf("rra\n");
 			rerotate(stack);
 		}
 		i++;
@@ -40,14 +40,14 @@ void	ft_moves_b(int *moves, t_Node **stack)
 	i = 0;
 	while (i < moves[2])
 	{
-		if (moves[1] == 7)
+		if (moves[3] == 7)
 		{
-			printf("rb");
+			printf("rb\n");
 			rotate(stack);
 		}
-		else if (moves[1] == 10)
+		else if (moves[3] == 10)
 		{
-			printf("rrb");
+			printf("rrb\n");
 			rerotate(stack);
 		}
 		i++;
@@ -58,4 +58,6 @@ void	ft_execute_moves(int *moves, t_Node **stack_a, t_Node **stack_b)
 {
 	ft_moves_a(moves, stack_a);
 	ft_moves_b(moves, stack_b);
+	printf("pb\n");
+	push_x_to_y(stack_a, stack_b);
 }
