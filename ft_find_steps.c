@@ -36,38 +36,35 @@ t_Node	*ft_find_b_num(t_Node *a_num, t_Node **stack_b)
 		curr = curr->next;
 	}
 	if (b_num == a_num)
-	{
-		printf("no match found");
 		exit(1);
-	}
 	return (b_num);
 }
 
-int	*ft_find_steps(t_Node **stack_a, t_Node **stack_b, t_Node *a_num)
+int	*ft_find_steps(t_Node **a, t_Node **b, t_Node *a_num, t_Node *b_num)
 {
-	int		*arr = malloc(4 * sizeof(int));
-	t_Node	*b_num;
+	int		*arr;
 
-	if ((ft_nums_on_stack(stack_a) - a_num->index) < a_num->index)
+	arr = malloc(4 * sizeof(int));
+	if ((ft_nums_on_stack(a) - a_num->index) < a_num->index)
 	{
-		arr[0] = ft_nums_on_stack(stack_a) - a_num->index;
-		arr[1] = 9; // rra
+		arr[0] = ft_nums_on_stack(a) - a_num->index;
+		arr[1] = 9;
 	}
 	else
 	{
 		arr[0] = a_num->index;
-		arr[1] = 6; // ra
+		arr[1] = 6;
 	}
-	b_num = ft_find_b_num(a_num, stack_b);
-	if ((ft_nums_on_stack(stack_b) - b_num->index) < b_num->index)
+	b_num = ft_find_b_num(a_num, b);
+	if ((ft_nums_on_stack(b) - b_num->index) < b_num->index)
 	{
-		arr[2] = ft_nums_on_stack(stack_b) - b_num->index;
-		arr[3] = 10; // rrb
+		arr[2] = ft_nums_on_stack(b) - b_num->index;
+		arr[3] = 10;
 	}
 	else
 	{
 		arr[2] = b_num->index;
-		arr[3] = 7; // rb
+		arr[3] = 7;
 	}
 	return (arr);
 }

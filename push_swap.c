@@ -26,68 +26,45 @@ void	printf_stack(t_Node **stack)
 
 void	push_swap(t_Node **stack_a, t_Node **stack_b)
 {
-	/* t_Node	*a;
-	t_Node	*b;
-	t_Node	*c;
-	int		i; */
-
-	t_Node *curr;
-
-	/* int *steps = ft_find_steps(stack_a, stack_b, curr);
-	int i = 0;
-	while (i < 4)
-	{
-		printf("%d", steps[i]);
-		i++;
-	} */
-	int		*min_moves = NULL;
+	t_Node	*curr;
+	t_Node	*b_num;
+	int		*min_moves;
 	int		*new_moves;
 
-	push_x_to_y(stack_a, stack_b);
-	push_x_to_y(stack_a, stack_b);
-
-	ft_set_indexes(stack_a);
-	ft_set_indexes(stack_b);
-
-
-
-	while (ft_nums_on_stack(stack_a) > 0)
+	if (ft_nums_on_stack(stack_a) > 4)
 	{
-		printf("stack a:\n");
-		printf_stack(stack_a);
-
-		printf("stack b:\n");
-		printf_stack(stack_b);
-		// set indexes
-		ft_set_indexes(stack_a);
-		ft_set_indexes(stack_b);
-		// looping over stack a
-		curr = *stack_a;
-		while (curr != NULL)
+		push_x_to_y(stack_a, stack_b);
+		printf("pb\n");
+		push_x_to_y(stack_a, stack_b);
+		printf("pb\n");
+		while (ft_nums_on_stack(stack_a) > 0)
 		{
-			// find minumum number of moves for this number
-			new_moves = ft_find_steps(stack_a, stack_b, curr);
-			int i = 0;
-			while (i < 4)
+			ft_set_indexes(stack_a);
+			ft_set_indexes(stack_b);
+			min_moves = NULL;
+			curr = *stack_a;
+			while (curr != NULL)
 			{
-				printf("%d\n", new_moves[i]);
-				i++;
+				b_num = *stack_b;
+				new_moves = ft_find_steps(stack_a, stack_b, curr, b_num);
+				if (min_moves == NULL)
+					min_moves = new_moves;
+				if (new_moves[0] + new_moves[2] < min_moves[0] + min_moves[2])
+					min_moves = new_moves;
+				//free(new_moves);
+				curr = curr->next;
 			}
-			printf("\n");
-			if (min_moves == NULL)
-				min_moves = new_moves;
-			else if (new_moves[0] + new_moves[2] < min_moves[0] + min_moves[2])
-				min_moves = new_moves;
-			//free(new_moves);
-			curr = curr->next;
+			ft_execute_moves(min_moves, stack_a, stack_b);
 		}
-		// move number in right position
-		ft_execute_moves(min_moves, stack_a, stack_b);
-		min_moves = NULL;
 	}
-
+	while (ft_nums_on_stack(stack_b) > 0)
+	{
+		printf("pa\n");
+		push_x_to_y(stack_b, stack_a);
+	}
 	ft_set_indexes(stack_a);
 	ft_set_indexes(stack_b);
+	ft_sort_a(stack_a);
 }
 
 int	main(int argc, char **argv)
@@ -100,18 +77,9 @@ int	main(int argc, char **argv)
 		printf("give back to prompt");
 		exit(-1);
 	}
-	// call function to setup stack a passing the input
 	stack_a = ft_stack_builder(argc, argv);
 	stack_b = NULL;
-
 	push_swap(&stack_a, &stack_b);
-
-	//print stacks to check result
-	printf("stack a:\n");
-	printf_stack(&stack_a);
-
-	printf("stack b:\n");
-	printf_stack(&stack_b);
-
+	// free both stacks
 	return (0);
 }

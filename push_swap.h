@@ -33,8 +33,9 @@ int		rerotate(t_Node **head);
 int		ft_check_final_order(t_Node **stack_a, t_Node **stack_b);
 int		ft_nums_on_stack(t_Node **stack);
 void	ft_set_indexes(t_Node **stack);
-int		*ft_find_steps(t_Node **stack_a, t_Node **stack_b, t_Node *a_num);
+int		*ft_find_steps(t_Node **a, t_Node **b, t_Node *a_num, t_Node *b_num);
 t_Node	*ft_find_b_num(t_Node *a_num, t_Node **stack_b);
 void	ft_execute_moves(int *moves, t_Node **stack_a, t_Node **stack_b);
+void	ft_sort_a(t_Node **stack);
 
 #endif

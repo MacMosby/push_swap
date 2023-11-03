@@ -23,7 +23,6 @@ t_Node	*ft_stack_builder(int argc, char **argv)
 	while (i < argc)
 	{
 		num = ft_atoi(argv[i]);
-		//printf("%d\n", num);
 		ft_insert_end(&stack_a, num);
 		i++;
 	}
