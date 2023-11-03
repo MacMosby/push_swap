@@ -19,21 +19,16 @@ void	push_swap(t_Node **stack_a, t_Node **stack_b)
 	t_Node	*c;
 	int		i; */
 
-	t_Node *curr = *stack_a;
+	t_Node *curr;
 
-
-	/* t_Node *curr = ft_find_b_num(*stack_a, stack_b);
-	printf("number: %d\n", curr->x);
-	printf("index: %d\n", curr->index); */
-
-	int *steps = ft_find_steps(stack_a, stack_b, curr);
+	/* int *steps = ft_find_steps(stack_a, stack_b, curr);
 	int i = 0;
 	while (i < 4)
 	{
 		printf("%d", steps[i]);
 		i++;
-	}
-	/* int		*min_moves;
+	} */
+	//int		*min_moves;
 	int		*new_moves;
 
 	// set indexes
@@ -45,14 +40,20 @@ void	push_swap(t_Node **stack_a, t_Node **stack_b)
 		{
 			// find minumum number of moves for this number
 			new_moves = ft_find_steps(stack_a, stack_b, curr);
-			if (min_moves == NULL)
+			int i = 0;
+			while (i < 4)
+			{
+				printf("%d\n", new_moves[i]);
+				i++;
+			}
+			/* if (min_moves == NULL)
 				min_moves = new_moves;
 			else if (new_moves[0] + new_moves[2] < min_moves[0] + min_moves[2])
-				min_moves = new_moves;
+				min_moves = new_moves; */
 			curr = curr->next;
 		}
 		// move number in right position
-		ft_execute_moves(min_moves, stack_a, stack_b); */
+		//ft_execute_moves(min_moves, stack_a, stack_b);
 
 	//while (ft_check_final_order(stack_a, stack_b) == 0)
 	/* i = 0;
