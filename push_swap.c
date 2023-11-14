@@ -31,7 +31,7 @@ void	push_swap(t_Node **stack_a, t_Node **stack_b)
 	int		*min_moves;
 	int		*new_moves;
 
-	if (ft_nums_on_stack(stack_a) > 4)
+	if (ft_nums_on_stack(stack_a) > 5)
 	{
 		push_x_to_y(stack_a, stack_b);
 		printf("pb\n");
@@ -57,6 +57,8 @@ void	push_swap(t_Node **stack_a, t_Node **stack_b)
 			ft_execute_moves(min_moves, stack_a, stack_b);
 		}
 	}
+	/* else
+		ft_less_numbers(stack_a, stack_b); */
 	while (ft_nums_on_stack(stack_b) > 0)
 	{
 		printf("pa\n");
