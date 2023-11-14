@@ -37,13 +37,11 @@ void	ft_rotate_a(t_Node **stack, int move, int count)
 	{
 		if (move == 6)
 		{
-			printf("ra\n");
-			rotate(stack);
+			rotate_a(stack);
 		}
 		else
 		{
-			printf("rra\n");
-			rerotate(stack);
+			rerotate_a(stack);
 		}
 		i++;
 	}

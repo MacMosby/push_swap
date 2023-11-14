@@ -19,7 +19,7 @@ void	printf_stack(t_Node **stack)
 	curr = *stack;
 	while (curr != NULL)
 	{
-		printf("num: %d, index: %d\n", curr->x, curr->index);
+		printf("num: %d\n", curr->x);
 		curr = curr->next;
 	}
 }
@@ -31,12 +31,12 @@ void	push_swap(t_Node **stack_a, t_Node **stack_b)
 	int		*min_moves;
 	int		*new_moves;
 
+	printf("START:\n");
+	printf_stack(stack_a);
 	if (ft_nums_on_stack(stack_a) > 5)
 	{
-		push_x_to_y(stack_a, stack_b);
-		printf("pb\n");
-		push_x_to_y(stack_a, stack_b);
-		printf("pb\n");
+		push_a_to_b(stack_a, stack_b);
+		push_a_to_b(stack_a, stack_b);
 		while (ft_nums_on_stack(stack_a) > 0)
 		{
 			ft_set_indexes(stack_a);
@@ -57,16 +57,15 @@ void	push_swap(t_Node **stack_a, t_Node **stack_b)
 			ft_execute_moves(min_moves, stack_a, stack_b);
 		}
 	}
-	/* else
-		ft_less_numbers(stack_a, stack_b); */
+	else
+		ft_less_numbers(stack_a, stack_b);
 	while (ft_nums_on_stack(stack_b) > 0)
-	{
-		printf("pa\n");
-		push_x_to_y(stack_b, stack_a);
-	}
+		push_b_to_a(stack_b, stack_a);
 	ft_set_indexes(stack_a);
 	ft_set_indexes(stack_b);
 	ft_sort_a(stack_a);
+	printf("END:\n");
+	printf_stack(stack_a);
 }
 
 int	main(int argc, char **argv)

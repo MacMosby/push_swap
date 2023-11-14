@@ -27,9 +27,12 @@ void	ft_insert_end(t_Node **root, int value);
 int		ft_atoi(const char *nptr);
 t_Node	*ft_stack_builder(int argc, char **argv);
 int		swap(t_Node **head);
-int		push_x_to_y(t_Node **x, t_Node **y);
-int		rotate(t_Node **head);
-int		rerotate(t_Node **head);
+int		push_a_to_b(t_Node **x, t_Node **y);
+int		push_b_to_a(t_Node **x, t_Node **y);
+int		rotate_a(t_Node **head);
+int		rotate_b(t_Node **head);
+int		rerotate_a(t_Node **head);
+int		rerotate_b(t_Node **head);
 int		ft_check_final_order(t_Node **stack_a, t_Node **stack_b);
 int		ft_nums_on_stack(t_Node **stack);
 void	ft_set_indexes(t_Node **stack);
@@ -37,5 +40,8 @@ int		*ft_find_steps(t_Node **a, t_Node **b, t_Node *a_num, t_Node *b_num);
 t_Node	*ft_find_b_num(t_Node *a_num, t_Node **stack_b);
 void	ft_execute_moves(int *moves, t_Node **stack_a, t_Node **stack_b);
 void	ft_sort_a(t_Node **stack);
+t_Node	*ft_find_min(t_Node **stack);
+void	ft_sort_three(t_Node **a);
+void	ft_less_numbers(t_Node **a, t_Node **b);
 
 #endif

@@ -24,17 +24,17 @@ void	ft_sort_three(t_Node **a)
 	if (top->x > mid->x && mid->x > btm->x)
 	{
 		swap(a);
-		rerotate(a);
+		rerotate_a(a);
 	}
 	else if (top->x > btm->x && btm->x > mid->x)
-		rotate(a);
+		rotate_a(a);
 	else if (mid->x > top->x && top->x > btm->x)
-		rerotate(a);
+		rerotate_a(a);
 	else if (btm->x > top->x && top->x > mid->x)
 		swap(a);
 	else if (mid->x > btm->x && btm->x > top->x)
 	{
 		swap(a);
-		rotate(a);
+		rotate_a(a);
 	}
 }
