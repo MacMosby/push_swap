@@ -80,6 +80,8 @@ int	main(int argc, char **argv)
 	}
 	stack_a = ft_stack_builder(argc, argv);
 	stack_b = NULL;
+	if (ft_check_final_order(&stack_a, &stack_b) == 1)
+		exit(0);
 	push_swap(&stack_a, &stack_b);
 	// free both stacks
 	return (0);

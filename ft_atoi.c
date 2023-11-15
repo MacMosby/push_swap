@@ -36,7 +36,7 @@ int	ft_atoi(const char *nptr)
 		return (res);
 	else
 	{
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 		exit(-2);
 	}
 }
