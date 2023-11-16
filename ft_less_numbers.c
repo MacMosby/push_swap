@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_less_numbers.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrodenbu <mrodenbu@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: marcrodenbusch <marcrodenbusch@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:28:45 by mrodenbu          #+#    #+#             */
-/*   Updated: 2023/11/14 15:28:48 by mrodenbu         ###   ########.fr       */
+/*   Updated: 2023/11/16 19:37:39 by marcrodenbu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	execute_rotations(int count, t_Node **a)
+{
+	int	i;
+
+	i = 0;
+	while (i < count)
+	{
+		rotate_a(a);
+		i++;
+	}
+}
 
 void	ft_push_min_to_b(t_Node **a, t_Node **b)
 {
@@ -33,11 +45,7 @@ void	ft_push_min_to_b(t_Node **a, t_Node **b)
 	else
 	{
 		count = min->index;
-		while (i < count)
-		{
-			rotate_a(a);
-			i++;
-		}
+		execute_rotations(count, a);
 	}
 	push_a_to_b(a, b);
 	ft_set_indexes(a);
@@ -51,6 +59,6 @@ void	ft_less_numbers(t_Node **a, t_Node **b)
 		ft_push_min_to_b(a, b);
 	if (ft_nums_on_stack(a) == 3)
 		ft_sort_three(a);
-	else //we only get here if the order is not correct in the beginning
+	else
 		swap(a);
 }

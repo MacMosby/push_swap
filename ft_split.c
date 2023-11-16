@@ -6,11 +6,12 @@
 /*   By: marcrodenbusch <marcrodenbusch@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 12:01:08 by mrodenbu          #+#    #+#             */
-/*   Updated: 2023/11/16 16:56:36 by marcrodenbu      ###   ########.fr       */
+/*   Updated: 2023/11/16 19:38:39 by marcrodenbu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 char	**ft_create_outer_ptr(int wc)
 {
 	char	**ptr;
@@ -32,15 +33,15 @@ int	ft_get_word_count(char *s)
 		return (0);
 	if (s[i] == ' ')
 		i++;
-		while (s[i] != 0)
-		{
-			if (s[i] == ' ' && s[i - 1] != ' ')
-				words++;
-			i++;
-		}
-		if (s[i] == 0 && s[i - 1] != ' ')
+	while (s[i] != 0)
+	{
+		if (s[i] == ' ' && s[i - 1] != ' ')
 			words++;
-		return (words);
+		i++;
+	}
+	if (s[i] == 0 && s[i - 1] != ' ')
+		words++;
+	return (words);
 }
 
 char	*ft_set_str(int i, int start, char *s)
@@ -48,7 +49,7 @@ char	*ft_set_str(int i, int start, char *s)
 	int		j;
 	char	*str;
 
-	str = malloc((i - start + 1) *sizeof(char));
+	str = malloc((i - start + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
 	j = 0;
