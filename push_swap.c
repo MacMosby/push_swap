@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	printf_stack(t_Node **stack)
+/* void	printf_stack(t_Node **stack)
 {
 	t_Node	*curr;
 
@@ -22,7 +22,7 @@ void	printf_stack(t_Node **stack)
 		printf("num: %d\n", curr->x);
 		curr = curr->next;
 	}
-}
+} */
 
 void	push_swap(t_Node **stack_a, t_Node **stack_b)
 {
@@ -31,8 +31,6 @@ void	push_swap(t_Node **stack_a, t_Node **stack_b)
 	int		*min_moves;
 	int		*new_moves;
 
-	printf("START:\n");
-	printf_stack(stack_a);
 	if (ft_nums_on_stack(stack_a) > 5)
 	{
 		push_a_to_b(stack_a, stack_b);
@@ -50,11 +48,18 @@ void	push_swap(t_Node **stack_a, t_Node **stack_b)
 				if (min_moves == NULL)
 					min_moves = new_moves;
 				if (new_moves[0] + new_moves[2] < min_moves[0] + min_moves[2])
+				{
+					free(min_moves);
 					min_moves = new_moves;
-				//free(new_moves);
+				}
+				else
+				{
+					free(new_moves);
+				}
 				curr = curr->next;
 			}
 			ft_execute_moves(min_moves, stack_a, stack_b);
+			free(min_moves);
 		}
 	}
 	else
@@ -64,8 +69,7 @@ void	push_swap(t_Node **stack_a, t_Node **stack_b)
 	ft_set_indexes(stack_a);
 	ft_set_indexes(stack_b);
 	ft_sort_a(stack_a);
-	printf("END:\n");
-	printf_stack(stack_a);
+	ft_free_stack(stack_a);
 }
 
 int	main(int argc, char **argv)
@@ -75,7 +79,6 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 	{
-		printf("give back to prompt");
 		exit(-1);
 	}
 	stack_a = ft_stack_builder(argc, argv);

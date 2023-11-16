@@ -31,7 +31,7 @@ int	swap(t_Node **head)
 	*head = second;
 	second->next = first;
 	first->next = third;
-	printf("sa\n");
+	write(1, "sa\n", 3);
 	return (0);
 }
 
@@ -49,7 +49,7 @@ int	push_a_to_b(t_Node **x, t_Node **y)
 	y_first = *y;
 	x_first->next = y_first;
 	*y = x_first;
-	printf("pb\n");
+	write(1, "pb\n", 3);
 	return (0);
 }
 
@@ -67,7 +67,7 @@ int	push_b_to_a(t_Node **x, t_Node **y)
 	y_first = *y;
 	x_first->next = y_first;
 	*y = x_first;
-	printf("pa\n");
+	write(1, "pa\n", 3);
 	return (0);
 }
 
@@ -89,7 +89,7 @@ int	rotate_a(t_Node **head)
 		curr = curr->next;
 	curr->next = first;
 	first->next = NULL;
-	printf("ra\n");
+	write(1, "ra\n", 3);
 	return (0);
 }
 
@@ -111,7 +111,7 @@ int	rotate_b(t_Node **head)
 		curr = curr->next;
 	curr->next = first;
 	first->next = NULL;
-	printf("rb\n");
+	write(1, "rb\n", 3);
 	return (0);
 }
 
@@ -136,7 +136,7 @@ int	rerotate_a(t_Node **head)
 	curr->next = first;
 	*head = curr;
 	new_end->next = NULL;
-	printf("rra\n");
+	write(1, "rra\n", 4);
 	return (0);
 }
 
@@ -161,6 +161,6 @@ int	rerotate_b(t_Node **head)
 	curr->next = first;
 	*head = curr;
 	new_end->next = NULL;
-	printf("rrb\n");
+	write(1, "rrb\n", 4);
 	return (0);
 }
