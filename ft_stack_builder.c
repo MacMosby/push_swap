@@ -6,7 +6,7 @@
 /*   By: marcrodenbusch <marcrodenbusch@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 19:54:41 by mrodenbu          #+#    #+#             */
-/*   Updated: 2023/11/16 16:57:26 by marcrodenbu      ###   ########.fr       */
+/*   Updated: 2023/11/16 17:29:19 by marcrodenbu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_Node	*ft_stack_builder(int argc, char **argv)
 
 	i = 1;
 	stack_a = NULL;
-	while (i < argc + 1)
+	while (i < argc)
 	{
 		num = ft_atoi(argv[i]);
 		ft_insert_end(&stack_a, num);

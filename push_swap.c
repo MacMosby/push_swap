@@ -6,7 +6,7 @@
 /*   By: marcrodenbusch <marcrodenbusch@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:50:59 by mrodenbu          #+#    #+#             */
-/*   Updated: 2023/11/16 16:52:33 by marcrodenbu      ###   ########.fr       */
+/*   Updated: 2023/11/16 17:29:26 by marcrodenbu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ int	main(int argc, char **argv)
 	t_Node	*stack_b;
 	char	**nums;
 	int		wc;
-	int i = 1;
 
 	if (argc == 1)
 	{
@@ -87,14 +86,9 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		nums = ft_split(argv[1]);
-		while (i < 6)
-		{
-			printf("number: %s\n", nums[i]);
-			i++;
-		}
 		wc = ft_get_word_count(argv[1]);
-		stack_a = ft_stack_builder(wc, nums);
-		printf_stack(&stack_a);
+		stack_a = ft_stack_builder(wc + 1, nums);
+		//printf_stack(&stack_a);
 		// free nums - coming from ft_split - first inner ptrs, then outer one
 	}
 	else
