@@ -6,7 +6,7 @@
 /*   By: marcrodenbusch <marcrodenbusch@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 12:01:08 by mrodenbu          #+#    #+#             */
-/*   Updated: 2023/11/16 14:52:25 by marcrodenbu      ###   ########.fr       */
+/*   Updated: 2023/11/16 16:56:36 by marcrodenbu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@ char	**ft_create_outer_ptr(int wc)
 {
 	char	**ptr;
 
-	ptr = (char **)malloc((wc + 1) * sizeof(char *));
+	ptr = (char **)malloc((wc + 2) * sizeof(char *));
 	if (!ptr)
 		exit(-3);
 	return (ptr);
 }
 
-int ft_get_word_count(char *s)
+int	ft_get_word_count(char *s)
 {
 	int	i;
 	int	words;
@@ -71,9 +71,10 @@ char	**ft_split(char *str)
 
 	wc = ft_get_word_count(str);
 	optr = ft_create_outer_ptr(wc);
+	optr[0] = NULL;
 	i = 0;
 	start = 0;
-	word = 0;
+	word = 1;
 	while (str[i] && wc > 0)
 	{
 		if (str[i] == ' ' && str[i - 1] != ' ' && i > 0)
@@ -84,6 +85,6 @@ char	**ft_split(char *str)
 	}
 	if (str[i] == 0 && str[i - 1] != ' ' && wc > 0)
 		optr[word] = ft_set_str(i, start, str);
-	optr[wc] = NULL;
+	optr[wc + 1] = NULL;
 	return (optr);
 }

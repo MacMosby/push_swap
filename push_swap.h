@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrodenbu <mrodenbu@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: marcrodenbusch <marcrodenbusch@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:53:03 by mrodenbu          #+#    #+#             */
-/*   Updated: 2023/09/20 15:53:06 by mrodenbu         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:56:58 by marcrodenbu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,8 @@ void	ft_sort_a(t_Node **stack);
 t_Node	*ft_find_min(t_Node **stack);
 void	ft_sort_three(t_Node **a);
 void	ft_less_numbers(t_Node **a, t_Node **b);
+int		ft_get_word_count(char *s);
+void	ft_free_stack(t_Node **stack);
+char	**ft_split(char *str);
 
 #endif

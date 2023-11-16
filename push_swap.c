@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrodenbu <mrodenbu@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: marcrodenbusch <marcrodenbusch@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:50:59 by mrodenbu          #+#    #+#             */
-/*   Updated: 2023/09/13 16:51:10 by mrodenbu         ###   ########.fr       */
+/*   Updated: 2023/11/16 16:52:33 by marcrodenbu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* void	printf_stack(t_Node **stack)
+void	printf_stack(t_Node **stack)
 {
 	t_Node	*curr;
 
@@ -22,7 +22,7 @@
 		printf("num: %d\n", curr->x);
 		curr = curr->next;
 	}
-} */
+}
 
 void	push_swap(t_Node **stack_a, t_Node **stack_b)
 {
@@ -76,16 +76,33 @@ int	main(int argc, char **argv)
 {
 	t_Node	*stack_a;
 	t_Node	*stack_b;
+	char	**nums;
+	int		wc;
+	int i = 1;
 
 	if (argc == 1)
 	{
 		exit(-1);
 	}
-	stack_a = ft_stack_builder(argc, argv);
+	if (argc == 2)
+	{
+		nums = ft_split(argv[1]);
+		while (i < 6)
+		{
+			printf("number: %s\n", nums[i]);
+			i++;
+		}
+		wc = ft_get_word_count(argv[1]);
+		stack_a = ft_stack_builder(wc, nums);
+		printf_stack(&stack_a);
+		// free nums - coming from ft_split - first inner ptrs, then outer one
+	}
+	else
+		stack_a = ft_stack_builder(argc, argv);
 	stack_b = NULL;
 	if (ft_check_final_order(&stack_a, &stack_b) == 1)
 		exit(0);
 	push_swap(&stack_a, &stack_b);
-	// free both stacks
+	//ft_free_stack(&stack_a);
 	return (0);
 }
