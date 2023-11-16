@@ -6,7 +6,7 @@
 /*   By: marcrodenbusch <marcrodenbusch@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:50:59 by mrodenbu          #+#    #+#             */
-/*   Updated: 2023/11/16 17:29:26 by marcrodenbu      ###   ########.fr       */
+/*   Updated: 2023/11/16 20:26:05 by marcrodenbu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,17 @@ void	push_swap(t_Node **stack_a, t_Node **stack_b)
 					min_moves = new_moves;
 				if (new_moves[0] + new_moves[2] < min_moves[0] + min_moves[2])
 				{
-					free(min_moves);
+					//free(min_moves);
 					min_moves = new_moves;
 				}
 				else
 				{
-					free(new_moves);
+					//free(new_moves);
 				}
 				curr = curr->next;
 			}
 			ft_execute_moves(min_moves, stack_a, stack_b);
-			free(min_moves);
+			//free(min_moves);
 		}
 	}
 	else
@@ -69,7 +69,7 @@ void	push_swap(t_Node **stack_a, t_Node **stack_b)
 	ft_set_indexes(stack_a);
 	ft_set_indexes(stack_b);
 	ft_sort_a(stack_a);
-	ft_free_stack(stack_a);
+	//ft_free_stack(stack_a);
 }
 
 int	main(int argc, char **argv)
@@ -97,6 +97,7 @@ int	main(int argc, char **argv)
 	if (ft_check_final_order(&stack_a, &stack_b) == 1)
 		exit(0);
 	push_swap(&stack_a, &stack_b);
+	printf_stack(&stack_a);
 	//ft_free_stack(&stack_a);
 	return (0);
 }
