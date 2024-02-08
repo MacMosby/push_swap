@@ -6,7 +6,7 @@
 /*   By: marcrodenbusch <marcrodenbusch@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:53:03 by mrodenbu          #+#    #+#             */
-/*   Updated: 2023/11/16 15:56:58 by marcrodenbu      ###   ########.fr       */
+/*   Updated: 2024/02/08 23:11:53 by marcrodenbu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
+
+typedef struct s_data
+{
+	int		ac;
+	char	**split_string;
+	int		words;
+}	t_data;
+
 
 typedef struct t_Node {
 	int				x;
